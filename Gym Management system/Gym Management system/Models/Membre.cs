@@ -16,19 +16,19 @@ namespace Gym_Management_system.Models
         public int groupe { get; set; }
 
 
-        int createMembre()
+        int createMembre(string nom, string prenom, DateTime datenaissance, string contact, int groupe)
         {
-            return DBAccess.Affect("INSERT INTO VALUES(,)");
+            return DBAccess.Affect("INSERT INTO membres VALUES(,'" + nom + "','" + prenom + "','" + datenaissance + "','" + contact + "','" + DateTime.Now + "'," + groupe + ")");
         }
 
-        int updateMembre()
+        int updateMembre(int id, string nom, string prenom, DateTime datenaissance, DateTime datejointure, string contact, int groupe)
         {
-            return DBAccess.Affect("UPDATE SET WHERE ");
+            return DBAccess.Affect("UPDATE membres SET nom = '" + nom + "', prenom = '" + prenom + "', datenaissance = '" + datenaissance + "', contact = '" + contact + "', datejointure = '" + datejointure + "', groupe = " + groupe + " WHERE id = " + id);
         }
 
-        int deleteMembre()
+        int deleteMembre(int id)
         {
-            return DBAccess.Affect("DELETE FROM WHERE ");
+            return DBAccess.Affect("DELETE FROM membres WHERE id = " + id);
         }
 
     }

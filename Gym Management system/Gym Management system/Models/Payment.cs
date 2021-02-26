@@ -13,19 +13,19 @@ namespace Gym_Management_system.Models
         public string description { get; set; }
 
 
-        int createPayment()
+        int createPayment(decimal montant, string description, int membre)
         {
-            return DBAccess.Affect("INSERT INTO VALUES(,)");
+            return DBAccess.Affect("INSERT INTO payments VALUES(, '" + DateTime.Now + "', '" + montant + "', '" + description + "', " + membre + ")");
         }
 
-        int updatePayment()
+        int updatePayment(int id, decimal montant, string description, int membre)
         {
-            return DBAccess.Affect("UPDATE SET WHERE ");
+            return DBAccess.Affect("UPDATE payments SET membre = " + membre + ", date = '" + DateTime.Now + "', montant = '" + montant + "', description = '" + description + "' WHERE id = " + id);
         }
 
-        int deletePayment()
+        int deletePayment(int id)
         {
-            return DBAccess.Affect("DELETE FROM WHERE ");
+            return DBAccess.Affect("DELETE FROM payments WHERE id = " + id);
         }
     }
 }

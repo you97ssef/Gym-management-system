@@ -11,19 +11,19 @@ namespace Gym_Management_system.Models
         public string description { get; set; }
 
 
-        int createGroupe(string nom, string motdepasse)
+        int createGroupe(string nom, string description)
         {
-            return DBAccess.Affect("INSERT INTO VALUES(,)");
+            return DBAccess.Affect("INSERT INTO groupes VALUES(, '" + nom + "', '" + description + "')");
         }
 
-        int updateGroupe(string nom, string motdepasse)
+        int updateGroupe(int id, string nom, string description)
         {
-            return DBAccess.Affect("UPDATE SET WHERE ");
+            return DBAccess.Affect("UPDATE groupes SET nom = '" + nom + "', description = '" + description + "' WHERE id = " + id);
         }
 
-        int deleteGroupe(string nom, string motdepasse)
+        int deleteGroupe(int id)
         {
-            return DBAccess.Affect("DELETE FROM WHERE ");
+            return DBAccess.Affect("DELETE FROM groupes WHERE id = " + id);
         }
 
     }

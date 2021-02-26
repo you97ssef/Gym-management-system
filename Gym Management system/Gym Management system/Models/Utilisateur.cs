@@ -12,17 +12,17 @@ namespace Gym_Management_system.Models
 
         int createUtilisateur(string nom, string motdepasse)
         {
-            return DBAccess.Affect("INSERT INTO VALUES(,)");
+            return DBAccess.Affect("INSERT INTO utilisateurs VALUES('" + nom + "','" + motdepasse + "')");
         }
 
-        int updateUtilisateur(string nom, string motdepasse)
+        int updateUtilisateur(string nom, string motdepasse, string nvnom)
         {
-            return DBAccess.Affect("UPDATE SET WHERE ");
+            return DBAccess.Affect("UPDATE utilisateurs SET nom = '" + nvnom + "', motdepasse = '" + motdepasse + "' WHERE nom='" + nom + "'");
         }
 
-        int deleteUtilisateur(string nom, string motdepasse)
+        int deleteUtilisateur(string nom)
         {
-            return DBAccess.Affect("DELETE FROM WHERE ");
+            return DBAccess.Affect("DELETE FROM utilisateurs WHERE nom = '" + nom + "'");
         }
 
     }
