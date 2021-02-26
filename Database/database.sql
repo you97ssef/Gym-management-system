@@ -4,13 +4,13 @@ CREATE TABLE groupes(
     description_groupe VARCHAR(1020),
 )
 
-CREATE TABLE personnes(
+CREATE TABLE membres(
     id INT PRIMARY KEY,
-    nom_personne VARCHAR(255),
-    prenom_personne VARCHAR(255),
-    age_personne INT,
-    contact_personne VARCHAR(1020),
-    datejointure_personne DATE,
+    nom_membre VARCHAR(255),
+    prenom_membre VARCHAR(255),
+    age_membre INT,
+    contact_membre VARCHAR(1020),
+    datejointure_membre DATE,
     groupe INT FOREIGN KEY REFERENCES groupes
 )
 
@@ -24,5 +24,5 @@ CREATE TABLE payements(
     date_payement DATE,
     montant_payement DECIMAL(15,2),
     description_payement VARCHAR(1020)
-    personne INT FOREIGN KEY REFERENCES personnes
+    membre INT FOREIGN KEY REFERENCES membres
 )
