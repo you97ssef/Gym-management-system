@@ -13,7 +13,7 @@ namespace Gym_Management_system.Models
         //SQLiteConnection cn = new SQLiteConnection(@"Data Source=C:\Users\you97\Desktop\Kaya Store management\stock.db;Version=3;");
         //SQLiteCommand cmd;
         //SQLiteDataReader dr;
-        static SqlConnection cn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Kaya.mdf;Integrated Security=True");
+        static SqlConnection cn = new SqlConnection(@"Data Source=(localdb)\v11.0;Initial Catalog=Gym;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         static SqlCommand cmd;
         static SqlDataReader dr;
 
