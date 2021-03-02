@@ -15,7 +15,7 @@ CREATE TABLE membres(
 );
 
 CREATE TABLE utilisateurs(
-    nom_utilisateur VARCHAR(30),
+    nom_utilisateur VARCHAR(30) PRIMARY KEY,
     motdepasse_utilisateur VARCHAR(30)
 );
 

@@ -1,0 +1,27 @@
+﻿@model Gym_Core.Models.Utilisateur
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+<div class="col-md-4">
+    <form asp-action="Connect">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="NomUtilisateur" class="control-label"></label>
+            <input asp-for="NomUtilisateur" class="form-control" />
+            <span asp-validation-for="NomUtilisateur" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MotdepasseUtilisateur" class="control-label"></label>
+            <input asp-for="MotdepasseUtilisateur" class="form-control" />
+            <span asp-validation-for="MotdepasseUtilisateur" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Se connecter" class="btn btn-success" />
+        </div>
+    </form>
+</div>
