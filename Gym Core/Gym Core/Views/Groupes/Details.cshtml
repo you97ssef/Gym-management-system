@@ -1,4 +1,5 @@
-﻿@model Gym_Core.Models.Groupe
+﻿@model Gym_Core.Models.Groupe 
+
 
 @{
     ViewData["Title"] = "Details";
@@ -10,16 +11,16 @@
     <h4>Groupe</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NomGroupe)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NomGroupe)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DescriptionGroupe)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DescriptionGroupe)
         </dd>
     </dl>
@@ -27,4 +28,64 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
+</div>
+
+<hr />
+
+<div>
+    <h2> Membres de groupe </h2>
+
+    <table class="table text-light">
+        <thead>
+            <tr>
+                <th>
+                    Nom Membre
+                </th>
+                <th>
+                    Prenom Membre
+                </th>
+                <th>
+                    Date de naissance
+                </th>
+                <th>
+                    Contact
+                </th>
+                <th>
+                    Date Jointure
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Membres)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomMembre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrenomMembre)
+                    </td>
+                    <td>
+                        @{ 
+                            var d = item.DatenaissanceMembre.Value.ToShortDateString();
+                        }
+                        @d
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactMembre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DatejointureMembre)
+                    </td>
+                    <td>
+                        <a asp-controller="Membres" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-controller="Membres" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-controller="Membres" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
 </div>

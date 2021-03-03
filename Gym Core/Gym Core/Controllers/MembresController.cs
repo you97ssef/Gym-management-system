@@ -40,7 +40,7 @@ namespace Gym_Core.Controllers
             {
                 return NotFound();
             }
-
+            membre.Payements = _context.Payements.Where(n => n.Membre == id).ToList();
             return View(membre);
         }
 

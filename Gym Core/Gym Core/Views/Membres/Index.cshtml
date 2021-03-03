@@ -43,13 +43,13 @@
                 @Html.DisplayFor(modelItem => item.PrenomMembre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DatenaissanceMembre)
+                @Html.DisplayFor(modelItem => item.DatenaissanceMembre.Value.ToShortDateString())
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ContactMembre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DatejointureMembre)
+                @Html.DisplayFor(modelItem => item.DatejointureMembre.Value.ToShortDateString())
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.GroupeNavigation.Id)

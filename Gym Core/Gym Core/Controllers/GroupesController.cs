@@ -38,7 +38,7 @@ namespace Gym_Core.Controllers
             {
                 return NotFound();
             }
-
+            groupe.Membres = _context.Membres.Where(n => n.Groupe == id).ToList();
             return View(groupe);
         }
 

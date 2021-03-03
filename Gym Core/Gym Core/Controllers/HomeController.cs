@@ -28,7 +28,7 @@ namespace Gym_Core.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
             return View();
         }
@@ -44,7 +44,7 @@ namespace Gym_Core.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Connect([Bind("NomUtilisateur,MotdepasseUtilisateur")] Utilisateur utilisateur)
+        public IActionResult Connect([Bind("NomUtilisateur,MotdepasseUtilisateur")] Utilisateur utilisateur)
         {
             if (ModelState.IsValid)
             {

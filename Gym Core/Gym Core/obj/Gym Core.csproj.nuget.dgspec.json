@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Youssef PC\\Desktop\\Gym Core\\Gym Core\\Gym Core.csproj": {}
+    "C:\\Users\\Youssef PC\\Desktop\\Gym management system\\Gym Core\\Gym Core\\Gym Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Youssef PC\\Desktop\\Gym Core\\Gym Core\\Gym Core.csproj": {
+    "C:\\Users\\Youssef PC\\Desktop\\Gym management system\\Gym Core\\Gym Core\\Gym Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Youssef PC\\Desktop\\Gym Core\\Gym Core\\Gym Core.csproj",
+        "projectUniqueName": "C:\\Users\\Youssef PC\\Desktop\\Gym management system\\Gym Core\\Gym Core\\Gym Core.csproj",
         "projectName": "Gym Core",
-        "projectPath": "C:\\Users\\Youssef PC\\Desktop\\Gym Core\\Gym Core\\Gym Core.csproj",
+        "projectPath": "C:\\Users\\Youssef PC\\Desktop\\Gym management system\\Gym Core\\Gym Core\\Gym Core.csproj",
         "packagesPath": "C:\\Users\\Youssef PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Youssef PC\\Desktop\\Gym Core\\Gym Core\\obj\\",
+        "outputPath": "C:\\Users\\Youssef PC\\Desktop\\Gym management system\\Gym Core\\Gym Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Youssef PC\\AppData\\Roaming\\NuGet\\NuGet.Config",

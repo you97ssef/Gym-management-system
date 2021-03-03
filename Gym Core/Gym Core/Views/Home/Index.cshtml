@@ -1,27 +1,54 @@
 ﻿@model Gym_Core.Models.Utilisateur
 
 @{
-    ViewData["Title"] = "Login";
+    Layout = null;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-</div>
-<div class="col-md-4">
-    <form asp-action="Connect">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="NomUtilisateur" class="control-label"></label>
-            <input asp-for="NomUtilisateur" class="form-control" />
-            <span asp-validation-for="NomUtilisateur" class="text-danger"></span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body  class="bg-dark text-light">
+    <div class="container">
+        <main role="main" class="pb-3">
+
+            <div class="text-center m-5">
+                <h1 class="display-4">Login</h1>
+            </div>
+            <div class="col-md-4 m-auto">
+                <form asp-action="Connect">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="NomUtilisateur" class="control-label"></label>
+                        <input asp-for="NomUtilisateur" class="form-control" />
+                        <span asp-validation-for="NomUtilisateur" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MotdepasseUtilisateur" class="control-label"></label>
+                        <input asp-for="MotdepasseUtilisateur" class="form-control" />
+                        <span asp-validation-for="MotdepasseUtilisateur" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Se connecter" class="btn btn-success" />
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Gym memberships Application - <a asp-area="" asp-controller="Home" asp-action="About">Youssef BAHI</a>
         </div>
-        <div class="form-group">
-            <label asp-for="MotdepasseUtilisateur" class="control-label"></label>
-            <input asp-for="MotdepasseUtilisateur" class="form-control" />
-            <span asp-validation-for="MotdepasseUtilisateur" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Se connecter" class="btn btn-success" />
-        </div>
-    </form>
-</div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
+

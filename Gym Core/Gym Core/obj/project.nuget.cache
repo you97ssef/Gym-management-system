@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d3sL4AjA8tMgFfNMfCKaclmP/smuoYVFYPNV0+J5mGV30On3+EhyB4xdqxIq/eO6S8nRQn2KAJifb1phOBZPfg==",
+  "dgSpecHash": "Tchc0nBd+X1tZSA+FwKdOoo0CS+MAhkDzUBxvfVV1TfpsqIq6WSjDPkIBnFWVZcIurC6HoXhmKAmF9ujlRO20Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Youssef PC\\Desktop\\Gym Core\\Gym Core\\Gym Core.csproj",
+  "projectFilePath": "C:\\Users\\Youssef PC\\Desktop\\Gym management system\\Gym Core\\Gym Core\\Gym Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Youssef PC\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Youssef PC\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

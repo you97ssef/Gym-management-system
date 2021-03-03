@@ -7,9 +7,9 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="badge badge-pill badge-primary">Create New Groupe</a>
 </p>
-<table class="table">
+<table class="table text-light">
     <thead>
         <tr>
             <th>
@@ -31,9 +31,9 @@
                 @Html.DisplayFor(modelItem => item.DescriptionGroupe)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" class="badge badge-pill badge-warning" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" class="badge badge-pill badge-info" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" class="badge badge-pill badge-danger" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
