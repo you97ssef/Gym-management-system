@@ -1,11 +1,8 @@
 ﻿@model IEnumerable<Gym_Core.Models.Groupe>
-
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
+<h1>Groupes</h1>
 <p>
     <a asp-action="Create" class="badge badge-pill badge-primary">Create New Groupe</a>
 </p>
@@ -13,10 +10,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NomGroupe)
+                Nom Groupe
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DescriptionGroupe)
+                Description de groupe
             </th>
             <th></th>
         </tr>

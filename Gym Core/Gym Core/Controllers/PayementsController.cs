@@ -45,12 +45,15 @@ namespace Gym_Core.Controllers
             return View(payement);
         }
 
-        // GET: Payements/Create
-        public IActionResult Create()
+        // GET: Payements/Create/id
+        public IActionResult Create(int? id)
         {
             ViewData["Membre"] = new SelectList(_context.Membres, "Id", "Id");
+            if (id != null)
+                ViewData["Membre"] = new SelectList(_context.Membres.Where(m => m.Id == id), "Id", "Id");
             return View();
         }
+
 
         // POST: Payements/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 

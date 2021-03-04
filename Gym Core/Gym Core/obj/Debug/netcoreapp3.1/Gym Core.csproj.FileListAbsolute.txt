@@ -378,3 +378,4 @@ C:\Users\Youssef PC\Desktop\Gym management system\Gym Core\Gym Core\obj\Debug\ne
 C:\Users\Youssef PC\Desktop\Gym management system\Gym Core\Gym Core\obj\Debug\netcoreapp3.1\Gym Core.pdb
 C:\Users\Youssef PC\Desktop\Gym management system\Gym Core\Gym Core\obj\Debug\netcoreapp3.1\Gym Core.genruntimeconfig.cache
 C:\Users\Youssef PC\Desktop\Gym management system\Gym Core\Gym Core\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs
+C:\Users\Youssef PC\Desktop\Gym management system\Gym Core\Gym Core\obj\Debug\netcoreapp3.1\Razor\Views\Home\Dashboard.cshtml.g.cs

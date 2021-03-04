@@ -12,7 +12,6 @@ namespace Gym_Core.Controllers
 {
     public class HomeController : Controller
     {
-
         private readonly GymContext _context;
 
         private readonly ILogger<HomeController> _logger;
@@ -59,5 +58,59 @@ namespace Gym_Core.Controllers
             return View(utilisateur);
         }
 
+        public IActionResult Dashboard()
+        {
+            var members = _context.Membres
+                .Join(
+                    _context.Payements,
+                    members => members.Id,
+                    payements => payements.Membre,
+                    (members, payements) => new
+                    {
+                        MembreId = members.Id,
+                        MembreNom = members.NomMembre,
+                        MembrePrenom = members.PrenomMembre,
+                        LastpayementIn = (DateTime.Today - payements.DatePayement).Value.TotalDays
+                    }
+                ).ToList();
+
+            List<MembreNonPayee> membs = new List<MembreNonPayee>();
+            foreach(var v in members)
+            {
+                if (v.LastpayementIn > 29)
+                {
+                    MembreNonPayee n = new MembreNonPayee();
+                    n.MembreId = v.MembreId;
+                    n.MembreNom = v.MembreNom;
+                    n.MembrePrenom = v.MembrePrenom;
+                    n.LastpayementIn = v.LastpayementIn;
+                    membs.Add(n);
+                }
+            }
+
+            var memb = from u in _context.Membres
+                       join p in _context.Payements on u.Id equals p.Membre into gj
+                       from x in gj.DefaultIfEmpty()
+                       where x.Id == null
+                                   select new
+                                   {
+                                       Id = u.Id,
+                                       NomMembre = u.NomMembre,
+                                       PrenomMembre = u.PrenomMembre
+                                   };
+
+            foreach (var v in memb)
+            {
+                MembreNonPayee n = new MembreNonPayee();
+                n.MembreId = v.Id;
+                n.MembreNom = v.NomMembre;
+                n.MembrePrenom = v.PrenomMembre;
+                n.LastpayementIn = -1;
+                membs.Add(n);
+            }
+
+
+            return View(membs);
+        }
     }
 }

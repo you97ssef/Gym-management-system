@@ -4,25 +4,25 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Payements</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="badge badge-pill badge-primary" asp-action="Create">Add New Payement</a>
 </p>
-<table class="table">
+<table class="table text-light">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.DatePayement)
+                Date de payement
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MontantPayement)
+                Montant paye
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DescriptionPayement)
+                description de payement
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MembreNavigation)
+                Membre
             </th>
             <th></th>
         </tr>
@@ -31,7 +31,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DatePayement)
+                @item.DatePayement.Value.ToShortDateString()
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MontantPayement)
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.MembreNavigation.NomMembre)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="badge badge-pill badge-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="badge badge-pill badge-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="badge badge-pill badge-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

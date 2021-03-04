@@ -4,31 +4,31 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Les Membres</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="badge badge-pill badge-primary" asp-action="Create">Create New Member</a>
 </p>
-<table class="table">
+<table class="table text-light">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NomMembre)
+                Nom Membre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PrenomMembre)
+                Prenom Membre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DatenaissanceMembre)
+                Date de naissance
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ContactMembre)
+                Contact Membre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DatejointureMembre)
+                Date jointure
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GroupeNavigation)
+                Groupe
             </th>
             <th></th>
         </tr>
@@ -43,21 +43,21 @@
                 @Html.DisplayFor(modelItem => item.PrenomMembre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DatenaissanceMembre.Value.ToShortDateString())
+                @item.DatenaissanceMembre.Value.ToShortDateString()
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ContactMembre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DatejointureMembre.Value.ToShortDateString())
+                @item.DatejointureMembre.Value.ToShortDateString()
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GroupeNavigation.Id)
+                @Html.DisplayFor(modelItem => item.GroupeNavigation.NomGroupe)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="badge badge-pill badge-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="badge badge-pill badge-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="badge badge-pill badge-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

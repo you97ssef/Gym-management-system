@@ -1,0 +1,48 @@
+﻿@model List<MembreNonPayee>
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+
+<table class="table text-light">
+    <thead>
+        <tr>
+            <th>
+                Membre Id
+            </th>
+            <th>
+                Membre Nom
+            </th>
+            <th>
+                Membre Prenom
+            </th>
+            <th>
+                Last Payement
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.MembreId
+                </td>
+                <td>
+                    @item.MembreNom
+                </td>
+                <td>
+                    @item.MembrePrenom
+                </td>
+                <td>
+                    @item.LastpayementIn
+                </td>
+                <td>
+                    <a class="badge badge-pill badge-primary" asp-controller="Payements" asp-action="Create" asp-route-id="@item.MembreId">Add payement</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

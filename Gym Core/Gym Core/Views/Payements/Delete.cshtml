@@ -4,33 +4,30 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to delete this Payement?</h3>
 <div>
-    <h4>Payement</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DatePayement)
+            Date de payement
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DatePayement)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MontantPayement)
+            Montant payement
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.MontantPayement)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DescriptionPayement)
+        <dt class="col-sm-2">
+            Description de payement
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DescriptionPayement)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MembreNavigation)
+        <dt class="col-sm-2">
+            Membre
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.MembreNavigation.Id)
@@ -40,6 +37,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a class="badge badge-pill badge-light" asp-action="Index">Back to List</a>
     </form>
 </div>

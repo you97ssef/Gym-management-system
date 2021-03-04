@@ -1,24 +1,21 @@
 ﻿@model Gym_Core.Models.Groupe 
-
-
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Details Groupes</h1>
 
 <div>
-    <h4>Groupe</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NomGroupe)
+            Nom
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NomGroupe)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DescriptionGroupe)
+            Description
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DescriptionGroupe)
@@ -26,8 +23,8 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="badge badge-pill badge-warning" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a class="badge badge-pill badge-light" asp-action="Index">Back to List</a>
 </div>
 
 <hr />
@@ -67,21 +64,18 @@
                         @Html.DisplayFor(modelItem => item.PrenomMembre)
                     </td>
                     <td>
-                        @{ 
-                            var d = item.DatenaissanceMembre.Value.ToShortDateString();
-                        }
-                        @d
+                        @item.DatenaissanceMembre.Value.ToShortDateString()
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ContactMembre)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.DatejointureMembre)
+                        @item.DatejointureMembre.Value.ToShortDateString()
                     </td>
                     <td>
-                        <a asp-controller="Membres" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-controller="Membres" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-controller="Membres" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a class="badge badge-pill badge-warning" asp-controller="Membres" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a class="badge badge-pill badge-info" asp-controller="Membres" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a class="badge badge-pill badge-danger" asp-controller="Membres" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                     </td>
                 </tr>
             }

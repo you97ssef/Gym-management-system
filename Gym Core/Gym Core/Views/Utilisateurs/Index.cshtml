@@ -4,16 +4,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Utilisateurs</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="badge badge-pill badge-primary" asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table text-light">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MotdepasseUtilisateur)
+                Nom d'utilisateur
+            </th>
+            <th>
+                Mot de passe
             </th>
             <th></th>
         </tr>
@@ -22,12 +25,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.NomUtilisateur)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.MotdepasseUtilisateur)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.NomUtilisateur">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.NomUtilisateur">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.NomUtilisateur">Delete</a>
+                <a class="badge badge-pill badge-warning" asp-action="Edit" asp-route-id="@item.NomUtilisateur">Edit</a> |
+                <a class="badge badge-pill badge-info" asp-action="Details" asp-route-id="@item.NomUtilisateur">Details</a> |
+                <a class="badge badge-pill badge-danger" asp-action="Delete" asp-route-id="@item.NomUtilisateur">Delete</a>
             </td>
         </tr>
 }
