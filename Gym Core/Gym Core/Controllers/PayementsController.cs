@@ -20,10 +20,31 @@ namespace Gym_Core.Controllers
         }
 
         // GET: Payements
+        //public async Task<IActionResult> Index()
+        //{
+        //    var gymContext = _context.Payements.Include(p => p.MembreNavigation);
+        //    return View(await gymContext.ToListAsync());
+        //}
+
+
+        // GET: Membres
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var gymContext = _context.Payements.Include(p => p.MembreNavigation);
-            return View(await gymContext.ToListAsync());
+            ViewData["Membre"] = new SelectList(_context.Membres, "Id", "NomMembre");
+            return View(_context.Payements.Include(m => m.MembreNavigation).ToList());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(int membre)
+        {
+            if (membre == null)
+                return View(_context.Payements.Include(m => m.MembreNavigation).ToList());
+            else
+            {
+                ViewData["Membre"] = new SelectList(_context.Membres, "Id", "NomMembre", membre);
+                return View(_context.Payements.Include(m => m.MembreNavigation).Where(m => m.Membre == membre).ToList());
+            }
         }
 
         // GET: Payements/Details/5
@@ -48,9 +69,9 @@ namespace Gym_Core.Controllers
         // GET: Payements/Create/id
         public IActionResult Create(int? id)
         {
-            ViewData["Membre"] = new SelectList(_context.Membres, "Id", "Id");
+            ViewData["Membre"] = new SelectList(_context.Membres, "Id", "NomMembre");
             if (id != null)
-                ViewData["Membre"] = new SelectList(_context.Membres.Where(m => m.Id == id), "Id", "Id");
+                ViewData["Membre"] = new SelectList(_context.Membres, "Id", "NomMembre", id);
             return View();
         }
 

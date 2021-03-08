@@ -19,10 +19,23 @@ namespace Gym_Core.Controllers
         }
 
         // GET: Membres
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var gymContext = _context.Membres.Include(m => m.GroupeNavigation);
-            return View(await gymContext.ToListAsync());
+            ViewData["Groupe"] = new SelectList(_context.Groupes, "Id", "NomGroupe");
+            return View(_context.Membres.Include(m => m.GroupeNavigation).ToList());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(int groupe)
+        {
+            if (groupe == null)
+                return View(_context.Membres.Include(m => m.GroupeNavigation).ToList());
+            else
+            {
+                ViewData["Groupe"] = new SelectList(_context.Groupes, "Id", "NomGroupe", groupe);
+                return View(_context.Membres.Include(m => m.GroupeNavigation).Where(m => m.Groupe == groupe).ToList());
+            }
         }
 
         // GET: Membres/Details/5

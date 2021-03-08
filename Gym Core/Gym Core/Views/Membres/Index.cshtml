@@ -5,10 +5,22 @@
 }
 
 <h1>Les Membres</h1>
+<hr />
+<div>
+    <form asp-action="Index">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Groupe</span>
+            </div>
 
-<p>
-    <a class="badge badge-pill badge-primary" asp-action="Create">Create New Member</a>
-</p>
+            <select id="groupe" name="groupe" class="form-control" asp-items="ViewBag.Groupe"></select>
+            <div class="input-group-append">
+                <input type="submit" value="Chercher" class="btn btn-outline-light" />
+            </div>
+        </div>
+    </form>
+</div>
+
 <table class="table text-light">
     <thead>
         <tr>
@@ -34,32 +46,38 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomMembre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrenomMembre)
-            </td>
-            <td>
-                @item.DatenaissanceMembre.Value.ToShortDateString()
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactMembre)
-            </td>
-            <td>
-                @item.DatejointureMembre.Value.ToShortDateString()
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GroupeNavigation.NomGroupe)
-            </td>
-            <td>
-                <a class="badge badge-pill badge-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a class="badge badge-pill badge-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a class="badge badge-pill badge-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomMembre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrenomMembre)
+                </td>
+                <td>
+                    @item.DatenaissanceMembre.Value.ToShortDateString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactMembre)
+                </td>
+                <td>
+                    @item.DatejointureMembre.Value.ToShortDateString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupeNavigation.NomGroupe)
+                </td>
+                <td>
+                    <a class="badge badge-pill badge-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="badge badge-pill badge-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a class="badge badge-pill badge-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        <tr class="text-center">
+            <td colspan="7">
+                <a class="badge badge-pill badge-primary" asp-action="Create">Create New Member</a>
             </td>
         </tr>
-}
     </tbody>
 </table>

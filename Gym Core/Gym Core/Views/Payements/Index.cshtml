@@ -5,10 +5,23 @@
 }
 
 <h1>Payements</h1>
+<hr />
+<div>
+    <form asp-action="Index">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Membre</span>
+            </div>
 
-<p>
-    <a class="badge badge-pill badge-primary" asp-action="Create">Add New Payement</a>
-</p>
+            <select id="membre" name="membre" class="form-control" asp-items="ViewBag.Membre" onchange="$('#create').attr('href', '/Payements/Create/' + $('#membre').val())"></select>
+            <div class="input-group-append">
+                <input type="submit" value="Chercher" class="btn btn-outline-light" />
+            </div>
+        </div>
+    </form>
+</div>
+
+
 <table class="table text-light">
     <thead>
         <tr>
@@ -28,26 +41,36 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.DatePayement.Value.ToShortDateString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MontantPayement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescriptionPayement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MembreNavigation.NomMembre)
+                </td>
+                <td>
+                    <a class="badge badge-pill badge-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="badge badge-pill badge-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a class="badge badge-pill badge-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
         <tr>
-            <td>
-                @item.DatePayement.Value.ToShortDateString()
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MontantPayement)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescriptionPayement)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MembreNavigation.NomMembre)
-            </td>
-            <td>
-                <a class="badge badge-pill badge-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a class="badge badge-pill badge-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a class="badge badge-pill badge-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            <td colspan="6">
+                <a id="create" class="badge badge-pill badge-primary" asp-action="Create">Add New Payement</a>
             </td>
         </tr>
-}
     </tbody>
 </table>
+
+<script>
+    $('#membre').change($('#create').attr('href', '/Payements/Create/' + $('#membre').val()));
+</script>
